@@ -7,7 +7,6 @@ import FOOTER from "@/components/footer";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
-
 const PalmBoostLanding = () => {
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -42,9 +41,7 @@ const PalmBoostLanding = () => {
     setPhoneNumber(event.target.value);
   };
 
-  const message = encodeURIComponent(
-  "Hi, I'm interested in PalmBoost"
-);
+  const message = encodeURIComponent("Hi, I'm interested in PalmBoost");
 
   return (
     <div className="min-h-screen bg-[#000000] text-white font-['Inter',_sans-serif]">
@@ -80,7 +77,8 @@ const PalmBoostLanding = () => {
 
       {/* Hero Section */}
       <main className="max-w-7xl mx-auto px-8 py-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div className="space-y-8">
+        {/* Text Section */}
+        <div className="space-y-8 order-2 lg:order-1">
           <h1 className="text-6xl md:text-7xl font-extrabold leading-tight tracking-tight">
             Palm Wine <br />
             <span className="text-[#288a3f]">in A Can.</span>
@@ -88,7 +86,6 @@ const PalmBoostLanding = () => {
           <p className="text-gray-400 text-lg md:text-xl max-w-lg">
             Shipping Across Nigeria.
           </p>
-
           {/* Container for email and whatsapp number */}
           <div className="flex flex-col gap-4 w-full max-w-md mx-auto md:mx-0">
             <div className="w-full">
@@ -119,9 +116,11 @@ const PalmBoostLanding = () => {
               />
             </div>
           </div>
-
           <div className="flex flex-col sm:flex-row gap-4">
-            <a hidden className="bg-[#288a3f] hover:bg-[#7eaf2f] text-white px-8 py-4 rounded-lg font-bold text-lg transition-all">
+            <a
+              hidden
+              className="bg-[#288a3f] hover:bg-[#7eaf2f] text-white px-8 py-4 rounded-lg font-bold text-lg transition-all"
+            >
               Buy PalmBoost
             </a>
             <a
@@ -135,8 +134,8 @@ const PalmBoostLanding = () => {
           </div>
         </div>
 
-        {/* Hero Photo Section (500x500) */}
-        <div className="relative w-full max-w-[500px] aspect-square mx-auto bg-gradient-to-br from-[#288a3f]/20 to-transparent rounded-2xl border border-white/10 flex items-center justify-center overflow-hidden">
+        {/* Hero Image Section */}
+        <div className="relative w-full max-w-[500px] aspect-square mx-auto bg-gradient-to-br from-[#288a3f]/20 to-transparent rounded-2xl border border-white/10 flex items-center justify-center overflow-hidden order-1 lg:order-2">
           <div className="absolute inset-0  bg-[#288a3f]/5 animate-pulse"></div>
           <Image
             src={heroimg}
