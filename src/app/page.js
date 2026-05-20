@@ -6,6 +6,8 @@ import heroimg from "./heroimg.png";
 import FOOTER from "@/components/footer";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import link from "next/link";
+import Link from "next/link";
 
 const PalmBoostLanding = () => {
   const [email, setEmail] = useState("");
@@ -63,9 +65,9 @@ const PalmBoostLanding = () => {
             Reviews
           </a>
         </div>
-        <button className="bg-[#288a3f] hover:bg-[#7eaf2f] text-white px-6 py-2 rounded-full text-sm font-semibold transition-all">
+        <Link href="Example: https://wa.me/2349129518676?text=I'm%20interested%20in%20PalmBoost%20" className="bg-[#288a3f] hover:bg-[#7eaf2f] text-white px-6 py-2 rounded-full text-sm font-semibold transition-all">
           Chat With Us
-        </button>
+        </Link>
       </nav>
 
       {/* Hero Section */}
