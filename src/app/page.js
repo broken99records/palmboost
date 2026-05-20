@@ -125,10 +125,10 @@ const PalmBoostLanding = () => {
               Buy PalmBoost
             </a>
             <a
-              href="https://wa.me/2349129518676?text=I'm%20interested%20in%20PalmBoost"
+              href={`https://wa.me/2349129418676?text=${message}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="border border-white/20 hover:border-[#288a3f] px-8 py-4 rounded-lg font-bold text-lg transition-all"
+              className="border border-white/20 bg-[#288a3f] hover:border-[#288a3f] px-8 py-4 rounded-lg font-bold text-lg transition-all"
             >
               Chat with Us
             </a>
