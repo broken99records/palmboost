@@ -6,8 +6,7 @@ import heroimg from "./heroimg.png";
 import FOOTER from "@/components/footer";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import link from "next/link";
-import Link from "next/link";
+
 
 const PalmBoostLanding = () => {
   const [email, setEmail] = useState("");
@@ -43,6 +42,10 @@ const PalmBoostLanding = () => {
     setPhoneNumber(event.target.value);
   };
 
+  const message = encodeURIComponent(
+  "Hi, I'm interested in PalmBoost"
+);
+
   return (
     <div className="min-h-screen bg-[#000000] text-white font-['Inter',_sans-serif]">
       <Head>
@@ -65,9 +68,14 @@ const PalmBoostLanding = () => {
             Reviews
           </a>
         </div>
-        <Link href="Example: https://wa.me/2349129518676?text=I'm%20interested%20in%20PalmBoost%20" className="bg-[#288a3f] hover:bg-[#7eaf2f] text-white px-6 py-2 rounded-full text-sm font-semibold transition-all">
+        <a
+          href="https://wa.me/2349129518676?text=I'm%20interested%20in%20PalmBoost"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-[#288a3f] hover:bg-[#7eaf2f] text-white px-6 py-2 rounded-full text-sm font-semibold transition-all"
+        >
           Chat With Us
-        </Link>
+        </a>
       </nav>
 
       {/* Hero Section */}
@@ -113,12 +121,17 @@ const PalmBoostLanding = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="bg-[#288a3f] hover:bg-[#7eaf2f] text-white px-8 py-4 rounded-lg font-bold text-lg transition-all">
+            <a hidden className="bg-[#288a3f] hover:bg-[#7eaf2f] text-white px-8 py-4 rounded-lg font-bold text-lg transition-all">
               Buy PalmBoost
-            </button>
-            <button className="border border-white/20 hover:border-[#288a3f] px-8 py-4 rounded-lg font-bold text-lg transition-all">
+            </a>
+            <a
+              href="https://wa.me/2349129518676?text=I'm%20interested%20in%20PalmBoost"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-white/20 hover:border-[#288a3f] px-8 py-4 rounded-lg font-bold text-lg transition-all"
+            >
               Chat with Us
-            </button>
+            </a>
           </div>
         </div>
 
