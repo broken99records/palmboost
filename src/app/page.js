@@ -78,7 +78,7 @@ const PalmBoostLanding = () => {
       {/* Hero Section */}
       <main className="max-w-7xl mx-auto px-8 py-20 grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
         {/* Text Section */}
-        <div className="space-y-8 order-2 lg:order-1">
+        <div className="space-y-6 order-2 lg:order-1">
           <h1 className="text-6xl md:text-7xl font-extrabold leading-tight tracking-tight">
             Palm Wine <br />
             <span className="text-[#288a3f]">in A Can.</span>
