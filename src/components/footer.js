@@ -73,7 +73,7 @@ const Footer = () => {
                 NAFDAC Reg No.
               </p>
               <p className="text-[#288a3f] font-mono text-sm tracking-wider">
-                A8-9923L-PB
+                01-8175L
               </p>
               <p className="text-[10px] text-gray-500 mt-2 italic">
                 Verified for safety and quality standards.
@@ -85,7 +85,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-600 text-xs">
-            © {new Date().getFullYear()} PalmBoost Global. All rights reserved.
+            © {new Date().getFullYear()} Inel Science Technic. All rights reserved.
           </p>
           <div className="flex space-x-6 text-xs text-gray-600">
             <a href="#" className="hover:text-white">
