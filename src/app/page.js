@@ -54,7 +54,7 @@ const PalmBoostLanding = () => {
   return (
     <div className="min-h-screen bg-[#000000] text-white font-['Inter',_sans-serif]">
       <Head>
-        <title>PalmBoost | Elevate Your Performance</title>
+        <title>PalmBoost</title>
       </Head>
 
       {/* Navigation */}
