@@ -142,7 +142,7 @@ const PalmBoostLanding = () => {
 
         {/* Hero Image Section */}
       <div className="
-  relative w-full h-[140px]
+  relative w-full h-[120px]
   sm:h-[360px]
   lg:h-[500px]
   mx-auto
