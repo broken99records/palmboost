@@ -6,10 +6,12 @@ import heroimg from "./heroimg.png";
 import FOOTER from "@/components/footer";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { insertLead } from "@/lib/functions/insertLead";
 
 const PalmBoostLanding = () => {
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const router = useRouter();
 
@@ -18,17 +20,22 @@ const PalmBoostLanding = () => {
     return emailRegex.test(email);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     setLoading(true);
 
     if (isValidEmail(email)) {
-      addEmailToDb(email, phoneNumber);
-      router.push("https://wa.me/2349129418676"); // Redirects to WhatsApp link
-      //router.push("/sign-up");
+      const result = await insertLead(email, phoneNumber);
+      if (result.success) {
+        setEmail("");
+        setPhoneNumber("");
+        setLoading(false);
+        alert("Details entered successfully!");        
+        router.push(`https://wa.me/2349129418676?text=${message}`);        
+      }
     } else {
       setEmail("");
-      setPhoneNumber("");
-      alert("Enter valid email address and phone number.");
+      setPhoneNumber("");      
+      alert("Please enter a valid email address and phone number.");
       setLoading(false);
     }
   };
@@ -66,9 +73,7 @@ const PalmBoostLanding = () => {
           </a>
         </div>
         <a
-          href="https://wa.me/2349129518676?text=I'm%20interested%20in%20PalmBoost"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="#lead-form"
           className="bg-[#288a3f] hover:bg-[#7eaf2f] text-white px-6 py-2 rounded-full text-sm font-semibold transition-all"
         >
           Chat With Us
@@ -83,7 +88,7 @@ const PalmBoostLanding = () => {
             Palm Wine <br />
             <span className="text-[#288a3f]">in A Can.</span>
           </h1>
-          <p className="text-gray-400 text-lg md:text-xl max-w-lg">
+          <p id = "lead-form" className="text-gray-400 text-lg md:text-xl max-w-lg">
             Shipping Across Nigeria.
           </p>
           {/* Container for email and whatsapp number */}
@@ -123,14 +128,13 @@ const PalmBoostLanding = () => {
             >
               Buy PalmBoost
             </a>
-            <a
-              href={`https://wa.me/2349129418676?text=${message}`}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={handleSubmit}
+              
               className="border border-white/20 bg-[#288a3f] hover:border-[#288a3f] px-8 py-4 rounded-lg font-bold text-lg transition-all"
             >
               Chat with Us
-            </a>
+            </button>
           </div>
         </div>
 

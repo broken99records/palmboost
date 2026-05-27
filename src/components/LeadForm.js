@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { insertLead } from "@/lib/functions/insertLead";
+import { insertLead } from "@src/lib/functions/insertLead";
 
 export default function LeadForm() {
   const [email, setEmail] = useState("");
