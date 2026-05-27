@@ -29,7 +29,8 @@ const PalmBoostLanding = () => {
         setEmail("");
         setPhoneNumber("");
         setLoading(false);
-        alert("Details entered successfully!");        
+        console.log("success on details input")
+        alert("Details entered successfully! You will be redirected to whatsapp, press OK");        
         router.push(`https://wa.me/2349129418676?text=${message}`);        
       }
     } else {
@@ -88,11 +89,12 @@ const PalmBoostLanding = () => {
             Palm Wine <br />
             <span className="text-[#288a3f]">in A Can.</span>
           </h1>
-          <p id = "lead-form" className="text-gray-400 text-lg md:text-xl max-w-lg">
-            Shipping Across Nigeria.
-          </p>
+          
           {/* Container for email and whatsapp number */}
           <div className="flex flex-col gap-4 w-full max-w-md mx-auto md:mx-0">
+           <p id = "lead-form" className="text-gray-400 text-lg md:text-xl max-w-lg">
+            Please Enter your details.
+          </p>
             <div className="w-full">
               <label htmlFor="email" className="sr-only">
                 Email Address
