@@ -156,7 +156,7 @@ const PalmBoostLanding = () => {
           <Image
             src={heroimg}
             alt="PalmBoost Hero"
-            className="z-10 ml-10 object-cover w-full h-full rounded-2xl"
+            className="z-10 ml-10 object-contain w-full h-full rounded-2xl"
             loading="eager"
           />
         </div>
