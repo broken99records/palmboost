@@ -141,8 +141,17 @@ const PalmBoostLanding = () => {
         </div>
 
         {/* Hero Image Section */}
-        <div className="relative w-full max-w-[140px] sm:max-w-[360px] lg:max-w-[500px] aspect-square mx-auto bg-gradient-to-br from-[#288a3f]/20 to-transparent rounded-2xl border border-white/10 flex items-center justify-center overflow-hidden order-1 lg:order-2">
-          {" "}
+      <div className="
+  relative w-full h-[140px]
+  sm:h-[360px]
+  lg:h-[500px]
+  mx-auto
+  bg-gradient-to-br from-[#288a3f]/20 to-transparent
+  rounded-2xl border border-white/10
+  flex items-center justify-center
+  overflow-hidden
+  order-1 lg:order-2
+">  {" "}
           <div className="absolute inset-0  bg-[#288a3f]/5 animate-pulse"></div>
           <Image
             src={heroimg}
