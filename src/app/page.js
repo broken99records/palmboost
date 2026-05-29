@@ -12,7 +12,7 @@ const PalmBoostLanding = () => {
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [loading, setLoading] = useState(false);
-
+  const [error, setError] = useState("");
   const router = useRouter();
 
   const isValidEmail = (email) => {
@@ -22,23 +22,27 @@ const PalmBoostLanding = () => {
 
   const handleSubmit = async () => {
     setLoading(true);
-
-    if (isValidEmail(email)) {
-      const result = await insertLead(email, phoneNumber);
-      if (result.success) {
+    
+      if (isValidEmail(email)) {
+        const result = await insertLead(email, phoneNumber);
+        if (result.success) {
+          setEmail("");
+          setPhoneNumber("");
+          setLoading(false);
+          console.log("success on details input");
+          alert(
+            "Details entered successfully! You will be redirected to whatsapp, press OK",
+          );
+          router.push(`https://wa.me/2349129418676?text=${message}`);
+        }
+      } else {
         setEmail("");
         setPhoneNumber("");
+        alert("Please enter a valid email address and phone number.");
         setLoading(false);
-        console.log("success on details input")
-        alert("Details entered successfully! You will be redirected to whatsapp, press OK");        
-        router.push(`https://wa.me/2349129418676?text=${message}`);        
+        setError("Invalid email address or phone number.");
       }
-    } else {
-      setEmail("");
-      setPhoneNumber("");      
-      alert("Please enter a valid email address and phone number.");
-      setLoading(false);
-    }
+    
   };
 
   const handleInputChange = (event) => {
@@ -89,12 +93,15 @@ const PalmBoostLanding = () => {
             Palm Wine <br />
             <span className="text-[#288a3f]">in A Can.</span>
           </h1>
-          
+
           {/* Container for email and whatsapp number */}
           <div className="flex flex-col gap-4 w-full max-w-md mx-auto md:mx-0">
-           <p id = "lead-form" className="text-gray-400 text-lg md:text-xl max-w-lg">
-            Please Enter your details.
-          </p>
+            <p
+              id="lead-form"
+              className="text-gray-400 text-lg md:text-xl max-w-lg"
+            >
+              Please Enter your details.
+            </p>
             <div className="w-full">
               <label htmlFor="email" className="sr-only">
                 Email Address
@@ -132,17 +139,23 @@ const PalmBoostLanding = () => {
             </a>
             <button
               onClick={handleSubmit}
-              
               className="border border-white/20 bg-[#288a3f] hover:border-[#288a3f] px-8 py-4 rounded-lg font-bold text-lg transition-all"
             >
               Chat with Us
             </button>
+            {/* Error Display */}
+            {error && (
+              <p id="error" className="text-red-500">
+                {error}
+              </p>
+            )}
           </div>
         </div>
 
         {/* Hero Image Section */}
-      <div className="
-  relative w-full h-[120px]
+        <div
+          className="
+  relative w-full h-[240px]
   sm:h-[360px]
   lg:h-[500px]
   mx-auto
@@ -151,12 +164,14 @@ const PalmBoostLanding = () => {
   flex items-center justify-center
   overflow-hidden
   order-1 lg:order-2
-">  {" "}
+"
+        >
+          {" "}
           <div className="absolute inset-0  bg-[#288a3f]/5 animate-pulse"></div>
           <Image
             src={heroimg}
             alt="PalmBoost Hero"
-            className=" z-5 ml-10 object-contain w-full h-full rounded-2xl"
+            className="ml-5 lg:ml-10 object-contain w-full h-full rounded-2xl"
             loading="eager"
           />
         </div>
