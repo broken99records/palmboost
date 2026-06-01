@@ -130,7 +130,7 @@ const PalmBoostLanding = () => {
                 placeholder="Enter your email"
                 value={email}
                 onChange={handleInputChange}
-                className="block w-full rounded-lg bg-white/5 border border-gray-300 px-4 py-3 text-white placeholder-gray-800 shadow-sm transition-all outline-none focus:border-[#288a3f] focus:ring-2 focus:ring-[#2663eb]/20 text-sm md:text-base"
+                className="block w-full rounded-lg bg-white/5 border border-gray-300 px-4 py-3 text-gray-800 placeholder-gray-800 shadow-sm transition-all outline-none focus:border-[#288a3f] focus:ring-2 focus:ring-[#2663eb]/20 text-sm md:text-base"
               />
             </div>
 
@@ -144,7 +144,7 @@ const PalmBoostLanding = () => {
                 placeholder="Enter your WhatsApp number"
                 value={phoneNumber}
                 onChange={handlePhoneChange}
-                className="block w-full rounded-lg bg-white/5 border border-gray-300 px-4 py-3 text-white placeholder-gray-800 shadow-sm transition-all outline-none focus:border-[#288a3f] focus:ring-2 focus:ring-[#2663eb]/20 text-sm md:text-base"
+                className="block w-full rounded-lg bg-white/5 border border-gray-300 px-4 py-3 text-gray-800 placeholder-gray-800 shadow-sm transition-all outline-none focus:border-[#288a3f] focus:ring-2 focus:ring-[#2663eb]/20 text-sm md:text-base"
               />
             </div>
           </div>
