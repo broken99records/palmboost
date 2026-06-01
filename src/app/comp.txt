@@ -1,0 +1,17 @@
+ {/* Benefits */}
+            <div className="space-y-3 mb-8">
+              {[
+                "Organic Raw Honey",
+                "120mg Natural Caffeine",
+                "Only 5g Added Sugar",
+                "Rich in Antioxidants",
+                "50 Calories",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="bg-[#DFF4F8] rounded-full px-5 py-3 text-gray-800"
+                >
+                  ☀️ {item}
+                </div>
+              ))}
+            </div>

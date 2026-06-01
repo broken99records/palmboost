@@ -22,27 +22,26 @@ const PalmBoostLanding = () => {
 
   const handleSubmit = async () => {
     setLoading(true);
-    
-      if (isValidEmail(email)) {
-        const result = await insertLead(email, phoneNumber);
-        if (result.success) {
-          setEmail("");
-          setPhoneNumber("");
-          setLoading(false);
-          console.log("success on details input");
-          alert(
-            "Details entered successfully! You will be redirected to whatsapp, press OK",
-          );
-          router.push(`https://wa.me/2349129418676?text=${message}`);
-        }
-      } else {
+
+    if (isValidEmail(email)) {
+      const result = await insertLead(email, phoneNumber);
+      if (result.success) {
         setEmail("");
         setPhoneNumber("");
-        alert("Please enter a valid email address and phone number.");
         setLoading(false);
-        setError("Invalid email address or phone number.");
+        console.log("success on details input");
+        alert(
+          "Details entered successfully! You will be redirected to whatsapp, press OK",
+        );
+        router.push(`https://wa.me/2349129418676?text=${message}`);
       }
-    
+    } else {
+      setEmail("");
+      setPhoneNumber("");
+      alert("Please enter a valid email address and phone number.");
+      setLoading(false);
+      setError("Invalid email address or phone number.");
+    }
   };
 
   const handleInputChange = (event) => {
@@ -94,11 +93,30 @@ const PalmBoostLanding = () => {
             <span className="text-[#288a3f]">in A Can.</span>
           </h1>
 
-          {/* Container for email and whatsapp number */}
-          <div className="flex flex-col gap-4 w-full max-w-md mx-auto md:mx-0">
+          {/* pricing section */}
+          <section className="bg-[#F6F1E6] rounded-3xl p-8 border border-[#288a3f]/10">
+           
+
+            {/* Pricing */}
+            <div className="mb-8">
+              <div className="flex items-center gap-3">
+                <h3 className="text-4xl font-bold text-gray-900">
+                  12 Pack ₦11,000
+                </h3>
+
+                <span className="bg-orange-500 text-white text-sm px-4 py-2 rounded-full">
+                  Save ₦1,000
+                </span>
+              </div>
+
+              <p className="text-lg text-gray-600 mt-2">₦916 per unit</p>
+            </div>
+
+            {/* Container for email and whatsapp number */}
+          <div className="flex flex-col mt-8 mb-8  gap-4 w-full max-w-md mx-auto md:mx-0">
             <p
               id="lead-form"
-              className="text-gray-400 text-lg md:text-xl max-w-lg"
+              className="text-gray-800 text-lg md:text-xl max-w-lg"
             >
               Please Enter your details.
             </p>
@@ -112,7 +130,7 @@ const PalmBoostLanding = () => {
                 placeholder="Enter your email"
                 value={email}
                 onChange={handleInputChange}
-                className="block w-full rounded-lg bg-white/5 border border-white/10 px-4 py-3 text-white placeholder-gray-500 shadow-sm transition-all outline-none focus:border-[#288a3f] focus:ring-2 focus:ring-[#2663eb]/20 text-sm md:text-base"
+                className="block w-full rounded-lg bg-white/5 border border-gray-300 px-4 py-3 text-white placeholder-gray-800 shadow-sm transition-all outline-none focus:border-[#288a3f] focus:ring-2 focus:ring-[#2663eb]/20 text-sm md:text-base"
               />
             </div>
 
@@ -126,30 +144,53 @@ const PalmBoostLanding = () => {
                 placeholder="Enter your WhatsApp number"
                 value={phoneNumber}
                 onChange={handlePhoneChange}
-                className="block w-full rounded-lg bg-white/5 border border-white/10 px-4 py-3 text-white placeholder-gray-500 shadow-sm transition-all outline-none focus:border-[#288a3f] focus:ring-2 focus:ring-[#2663eb]/20 text-sm md:text-base"
+                className="block w-full rounded-lg bg-white/5 border border-gray-300 px-4 py-3 text-white placeholder-gray-800 shadow-sm transition-all outline-none focus:border-[#288a3f] focus:ring-2 focus:ring-[#2663eb]/20 text-sm md:text-base"
               />
             </div>
           </div>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <a
-              hidden
-              className="bg-[#288a3f] hover:bg-[#7eaf2f] text-white px-8 py-4 rounded-lg font-bold text-lg transition-all"
-            >
-              Buy PalmBoost
-            </a>
-            <button
+          
+            
+            
+            
+          
+
+            {/* CTA Buttons */}
+            <div className="grid gap-4 sm:grid-cols-2">
+              <a
+                href="https://wa.me/2349129518676?text=I'm%20interested%20in%20a%2012-pack%20of%20PalmBoost"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#288a3f] hover:bg-[#226f33] text-white text-center font-semibold py-4 rounded-full transition"
+              >
+                Order 12 Pack
+              </a>
+
+              <a
+                href="https://wa.me/2349129518676?text=I'm%20interested%20in%20PalmBoost"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-2 border-[#288a3f] text-[#288a3f] hover:bg-[#288a3f] hover:text-white text-center font-semibold py-4 rounded-full transition"
+              >
+                Buy Single (₦1,000)
+              </a>
+
+              <button
               onClick={handleSubmit}
-              className="border border-white/20 bg-[#288a3f] hover:border-[#288a3f] px-8 py-4 rounded-lg font-bold text-lg transition-all"
+                className="bg-[#288a3f] hover:bg-[#226f33] text-white text-center font-semibold py-4 rounded-full transition"
             >
               Chat with Us
             </button>
-            {/* Error Display */}
+
+              {/* Error Display */}
             {error && (
               <p id="error" className="text-red-500">
                 {error}
               </p>
             )}
-          </div>
+            </div>
+          </section>
+
+          
         </div>
 
         {/* Hero Image Section */}
