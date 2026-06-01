@@ -109,7 +109,7 @@ const PalmBoostLanding = () => {
                 </span>
               </div>
 
-              <p className="text-lg text-gray-600 mt-2">₦916 per unit</p>
+              <p className="text-lg text-gray-600 mt-2">₦916 per Can</p>
             </div>
 
             {/* Container for email and whatsapp number */}
