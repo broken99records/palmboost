@@ -13,6 +13,9 @@ const Footer = () => {
             <p className="text-gray-400 text-sm leading-relaxed">
               Pasteurized Raffia Palm Wine.
             </p>
+            <p className="text-gray-400 text-sm leading-relaxed">
+              Available in Calabar.
+            </p>
           </div>
 
           {/* Navigation Links */}
