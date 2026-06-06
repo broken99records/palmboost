@@ -13,6 +13,9 @@ const PalmBoostLanding = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [message, setMessage] = useState(
+    encodeURIComponent("Hi, I'm interested in PalmBoost"),
+  );
   const router = useRouter();
 
   const isValidEmail = (email) => {
@@ -40,7 +43,7 @@ const PalmBoostLanding = () => {
       setPhoneNumber("");
       alert("Please enter a valid email address and phone number.");
       setLoading(false);
-      setError("Invalid email address or phone number.");
+      setError(`Invalid email address or phone number.   Please enter your details again.`);
     }
   };
 
@@ -52,7 +55,7 @@ const PalmBoostLanding = () => {
     setPhoneNumber(event.target.value);
   };
 
-  const message = encodeURIComponent("Hi, I'm interested in PalmBoost");
+  
 
   return (
     <div className="min-h-screen bg-[#000000] text-white font-['Inter',_sans-serif]">
@@ -95,8 +98,6 @@ const PalmBoostLanding = () => {
 
           {/* pricing section */}
           <section className="bg-[#F6F1E6] rounded-3xl p-8 border border-[#288a3f]/10">
-           
-
             {/* Pricing */}
             <div className="mb-8">
               <div className="flex items-center gap-3">
@@ -113,84 +114,87 @@ const PalmBoostLanding = () => {
             </div>
 
             {/* Container for email and whatsapp number */}
-          <div className="flex flex-col mt-8 mb-8  gap-4 w-full max-w-md mx-auto md:mx-0">
-            <p
-              id="lead-form"
-              className="text-gray-800 text-lg md:text-xl max-w-lg"
-            >
-              Please Enter your details.
-            </p>
-            <div className="w-full">
-              <label htmlFor="email" className="sr-only">
-                Email Address
-              </label>
-              <input
-                id="email"
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={handleInputChange}
-                className="block w-full rounded-lg bg-white/5 border border-gray-300 px-4 py-3 text-gray-800 placeholder-gray-800 shadow-sm transition-all outline-none focus:border-[#288a3f] focus:ring-2 focus:ring-[#2663eb]/20 text-sm md:text-base"
-              />
-            </div>
+            <div className="flex flex-col mt-8 mb-8  gap-4 w-full max-w-md mx-auto md:mx-0">
+              <p
+                id="lead-form"
+                className="text-gray-800 text-lg md:text-xl max-w-lg"
+              >
+                Please Enter your details.
+              </p>
+              <div className="w-full">
+                <label htmlFor="email" className="sr-only">
+                  Email Address
+                </label>
+                <input
+                  id="email"
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={handleInputChange}
+                  className="block w-full rounded-lg bg-white/5 border border-gray-300 px-4 py-3 text-gray-800 placeholder-gray-800 shadow-sm transition-all outline-none focus:border-[#288a3f] focus:ring-2 focus:ring-[#2663eb]/20 text-sm md:text-base"
+                />
+              </div>
 
-            <div className="w-full">
-              <label htmlFor="phone" className="sr-only">
-                WhatsApp Number
-              </label>
-              <input
-                id="phone"
-                type="tel"
-                placeholder="Enter your WhatsApp number"
-                value={phoneNumber}
-                onChange={handlePhoneChange}
-                className="block w-full rounded-lg bg-white/5 border border-gray-300 px-4 py-3 text-gray-800 placeholder-gray-800 shadow-sm transition-all outline-none focus:border-[#288a3f] focus:ring-2 focus:ring-[#2663eb]/20 text-sm md:text-base"
-              />
+              <div className="w-full">
+                <label htmlFor="phone" className="sr-only">
+                  WhatsApp Number
+                </label>
+                <input
+                  id="phone"
+                  type="tel"
+                  placeholder="Enter your WhatsApp number"
+                  value={phoneNumber}
+                  onChange={handlePhoneChange}
+                  className="block w-full rounded-lg bg-white/5 border border-gray-300 px-4 py-3 text-gray-800 placeholder-gray-800 shadow-sm transition-all outline-none focus:border-[#288a3f] focus:ring-2 focus:ring-[#2663eb]/20 text-sm md:text-base"
+                />
+              </div>
             </div>
-          </div>
-          
-            
-            
-            
-          
 
             {/* CTA Buttons */}
             <div className="grid gap-4 sm:grid-cols-2">
-              <a
-                href="https://wa.me/2349129518676?text=I'm%20interested%20in%20a%2012-pack%20of%20PalmBoost"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => {
+                  setMessage(
+                    encodeURIComponent(
+                      "Hi, I'm interested in the 12 pack of PalmBoost",
+                    ),
+                  );
+                  handleSubmit();
+                }}
                 className="bg-[#288a3f] hover:bg-[#226f33] text-white text-center font-semibold py-4 rounded-full transition"
               >
                 Order 12 Pack
-              </a>
+              </button>
 
-              <a
-                href="https://wa.me/2349129518676?text=I'm%20interested%20in%20PalmBoost"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => {
+                  setMessage(
+                    encodeURIComponent(
+                      "Hi, I'm interested in the some PalmBoost",
+                    ),
+                  );
+                  handleSubmit();
+                }}
                 className="border-2 border-[#288a3f] text-[#288a3f] hover:bg-[#288a3f] hover:text-white text-center font-semibold py-4 rounded-full transition"
               >
                 Buy Single (₦1,000)
-              </a>
+              </button>
 
               <button
-              onClick={handleSubmit}
+                onClick={handleSubmit}
                 className="bg-[#288a3f] hover:bg-[#226f33] text-white text-center font-semibold py-4 rounded-full transition"
-            >
-              Chat with Us
-            </button>
+              >
+                Chat with Us
+              </button>
 
               {/* Error Display */}
-            {error && (
-              <p id="error" className="text-red-500">
-                {error}
-              </p>
-            )}
+              {error && (
+                <p id="error" className="text-red-500">
+                  {error}
+                </p>
+              )}
             </div>
           </section>
-
-          
         </div>
 
         {/* Hero Image Section */}
