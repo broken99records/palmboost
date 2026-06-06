@@ -16,6 +16,12 @@ const Footer = () => {
             <p className="text-gray-400 text-sm leading-relaxed">
               Available in Calabar.
             </p>
+            <p className="text-gray-400 text-sm leading-relaxed">
+              5% alcohol by volume.
+            </p>
+            <p className="text-gray-400 text-sm leading-relaxed">
+              Available for pre-order.
+            </p>
           </div>
 
           {/* Navigation Links */}
