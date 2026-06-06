@@ -170,7 +170,7 @@ const PalmBoostLanding = () => {
                 onClick={() => {
                   setMessage(
                     encodeURIComponent(
-                      "Hi, I'm interested in the some PalmBoost",
+                      "Hi, I'm interested in some PalmBoost",
                     ),
                   );
                   handleSubmit();
