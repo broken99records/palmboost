@@ -11,7 +11,7 @@ export async function insertLead(email, phone_number) {
         phone_number,
       },
     ])
-    .select();
+    ;
 
   if (error) {
     console.error("Error inserting lead:", error.message);
